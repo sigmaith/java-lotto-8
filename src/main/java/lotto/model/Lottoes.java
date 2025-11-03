@@ -10,5 +10,12 @@ public class Lottoes {
         this.lottoes = lottoes;
     }
 
+    public int size() {
+        return lottoes.size();
+    }
 
+    @Override
+    public String toString() {
+        return String.join("\n", lottoes.stream().map(Lotto::toString).toList());
+    }
 }
