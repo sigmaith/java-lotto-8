@@ -59,6 +59,6 @@ public class LottoMatcher {
                 + String.format("5개 일치 (1,500,000원) - %d개\n", scoreBoard.get(5))
                 + String.format("5개 일치, 보너스 볼 일치 (30,000,000원) - %d개\n", scoreBoard.get(6))
                 + String.format("6개 일치 (2,000,000,000원) - %d개\n", scoreBoard.get(7))
-                + String.format("총 수익률은 %.2f%%입니다.\n", returnRate);
+                + String.format("총 수익률은 %.1f%%입니다.\n", returnRate);
     }
 }
