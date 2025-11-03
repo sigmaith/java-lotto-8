@@ -8,4 +8,8 @@ public class OutputView {
         System.out.println(lottoes.toString());
         System.out.println();
     }
+
+    public static void printLuckyDrawResult(String result) {
+        System.out.println(result);
+    }
 }
