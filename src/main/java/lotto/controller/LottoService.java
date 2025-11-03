@@ -22,7 +22,7 @@ public class LottoService {
                 int bonusNum = InputView.getBonusNum();
                 lottoMatcher.draw(winningNums, bonusNum);
                 break;
-            } catch (Exception e) {
+            } catch (IllegalArgumentException e) {
                 System.out.println(e.getMessage());
             }
         }
@@ -35,7 +35,7 @@ public class LottoService {
                 Lottoes lottoes = LottoIssuer.issue(money);
                 OutputView.printLottoes(lottoes);
                 return lottoes;
-            } catch (Exception e) {
+            } catch (IllegalArgumentException e) {
                 System.out.println(e.getMessage());
             }
         }
