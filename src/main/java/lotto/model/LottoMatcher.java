@@ -1,5 +1,7 @@
 package lotto.model;
 
+import static lotto.CustomException.DUPLICATE_WINNING_BONUS_NUMBER;
+
 import java.util.HashMap;
 import java.util.List;
 
@@ -16,7 +18,7 @@ public class LottoMatcher {
 
     public void draw(List<Integer> winningNums, int bonusNum) {
         if (winningNums.contains(bonusNum)) {
-            throw new IllegalArgumentException("[ERROR] 보너스번호는 당첨번호와 중복되지 않아야 합니다.");
+            throw new IllegalArgumentException(DUPLICATE_WINNING_BONUS_NUMBER.description());
         }
         this.winningNums = winningNums;
         this.bonusNum = bonusNum;
@@ -54,7 +56,7 @@ public class LottoMatcher {
     }
 
     public String getScoreBoardResult(float returnRate) {
-        return "당첨 통계\n---\n" + String.format("3개 일치 (5,000원) - %d개\n", scoreBoard.get(3))
+        return "\n당첨 통계\n---\n" + String.format("3개 일치 (5,000원) - %d개\n", scoreBoard.get(3))
                 + String.format("4개 일치 (50,000원) - %d개\n", scoreBoard.get(4))
                 + String.format("5개 일치 (1,500,000원) - %d개\n", scoreBoard.get(5))
                 + String.format("5개 일치, 보너스 볼 일치 (30,000,000원) - %d개\n", scoreBoard.get(6))

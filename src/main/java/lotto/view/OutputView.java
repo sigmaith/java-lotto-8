@@ -4,7 +4,7 @@ import lotto.model.Lottoes;
 
 public class OutputView {
     public static void printLottoes(Lottoes lottoes) {
-        System.out.println(String.format("%d개를 구매했습니다.", lottoes.size()));
+        System.out.printf("\n%d개를 구매했습니다.\n", lottoes.size());
         System.out.println(lottoes.toString());
         System.out.println();
     }

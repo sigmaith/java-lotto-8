@@ -1,5 +1,7 @@
 package lotto.view;
 
+import static lotto.CustomException.NUMBER_FORMAT;
+
 import camp.nextstep.edu.missionutils.Console;
 import java.util.Arrays;
 import java.util.List;
@@ -10,7 +12,7 @@ public class InputView {
         try {
             return Integer.parseInt(Console.readLine());
         } catch (NumberFormatException e) {
-            throw new IllegalArgumentException("[ERROR] 숫자 형식이어야 합니다.");
+            throw new IllegalArgumentException(NUMBER_FORMAT.description());
         }
     }
 
@@ -20,7 +22,7 @@ public class InputView {
         try {
             return Arrays.stream(splits).map(i -> Integer.parseInt(i.strip())).toList();
         } catch (NumberFormatException e) {
-            throw new IllegalArgumentException("[ERROR] 숫자 형식이어야 합니다.");
+            throw new IllegalArgumentException(NUMBER_FORMAT.description());
         }
     }
 
@@ -29,7 +31,7 @@ public class InputView {
         try {
             return Integer.parseInt(Console.readLine().strip());
         } catch (NumberFormatException e) {
-            throw new IllegalArgumentException("[ERROR] 숫자 형식이어야 합니다.");
+            throw new IllegalArgumentException(NUMBER_FORMAT.description());
         }
     }
 }

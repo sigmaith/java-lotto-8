@@ -1,11 +1,21 @@
 package lotto.model;
 
+import static lotto.CustomException.DUPLICATE_NUMBER;
+import static lotto.CustomException.NUMBER_COUNT;
+import static lotto.CustomException.NUMBER_RANGE;
+
 import java.util.ArrayList;
 import java.util.Comparator;
 import java.util.HashSet;
 import java.util.List;
 
 public class Lotto {
+    private static final int LOTTO_NUMBER_COUNT = 6;
+    private static final int LOTTO_MIN_NUMBER = 1;
+    private static final int LOTTO_MAX_NUMBER = 45;
+    private static final int MATCH_COUNT_INDEX = 0;
+    private static final int BONUS_MATCH_INDEX = 1;
+
     private final List<Integer> numbers;
 
     public Lotto(List<Integer> numbers) {
@@ -14,23 +24,23 @@ public class Lotto {
     }
 
     private void validate(List<Integer> numbers) {
-        if (numbers.size() != 6) {
-            throw new IllegalArgumentException("[ERROR] 로또 번호는 6개여야 합니다.");
+        if (numbers.size() != LOTTO_NUMBER_COUNT) {
+            throw new IllegalArgumentException(NUMBER_COUNT.description());
         }
         if (new HashSet<>(numbers).size() != numbers.size()) {
-            throw new IllegalArgumentException("[ERROR] 로또 번호는 중복 되지 않아야 합니다.");
+            throw new IllegalArgumentException(DUPLICATE_NUMBER.description());
         }
-        if (numbers.stream().anyMatch(n -> (n < 1 || n > 45))) {
-            throw new IllegalArgumentException("[ERROR] 로또 번호는 1에서 45 사이의 숫자여야 합니다.");
+        if (numbers.stream().anyMatch(n -> (n < LOTTO_MIN_NUMBER || n > LOTTO_MAX_NUMBER))) {
+            throw new IllegalArgumentException(NUMBER_RANGE.description());
         }
     }
 
     public int[] score(List<Integer> winningNums, int bonusNum) {
         int[] score = new int[]{0, 0};
         for (int num : winningNums) {
-            if (numbers.contains(num)) score[0]++;
+            if (numbers.contains(num)) score[MATCH_COUNT_INDEX]++;
         }
-        if (numbers.contains(bonusNum)) score[1] = 1;
+        if (numbers.contains(bonusNum)) score[BONUS_MATCH_INDEX] = 1;
         return score;
     }
 
