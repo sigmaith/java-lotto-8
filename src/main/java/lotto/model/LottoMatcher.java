@@ -54,11 +54,11 @@ public class LottoMatcher {
     }
 
     public String getScoreBoardResult(float returnRate) {
-        return "당첨 통계\n---" + String.format("3개 일치 (5,000원) - %d개\n", scoreBoard.get(3))
+        return "당첨 통계\n---\n" + String.format("3개 일치 (5,000원) - %d개\n", scoreBoard.get(3))
                 + String.format("4개 일치 (50,000원) - %d개\n", scoreBoard.get(4))
                 + String.format("5개 일치 (1,500,000원) - %d개\n", scoreBoard.get(5))
                 + String.format("5개 일치, 보너스 볼 일치 (30,000,000원) - %d개\n", scoreBoard.get(6))
                 + String.format("6개 일치 (2,000,000,000원) - %d개\n", scoreBoard.get(7))
-                + String.format("총 수익률은 %.2f입니다.\n", returnRate);
+                + String.format("총 수익률은 %.2f%%입니다.\n", returnRate);
     }
 }
