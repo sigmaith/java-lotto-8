@@ -31,10 +31,10 @@ public class LottoMatcher {
     private void score(Lottoes lottoes) {
         for (int[] score : lottoes.score(winningNums, bonusNum)) {
             if (score[0] == 6) increase(7);
-            if (score[0] == 5 && score[1] == 1) increase(6);
-            if (score[0] == 5) increase(5);
-            if (score[0] == 4) increase(4);
-            if (score[0] == 3) increase(3);
+            else if (score[0] == 5 && score[1] == 1) increase(6);
+            else if (score[0] == 5) increase(5);
+            else if (score[0] == 4) increase(4);
+            else if (score[0] == 3) increase(3);
         }
     }
 
