@@ -24,6 +24,15 @@ public class Lotto {
         }
     }
 
+    public int[] score(List<Integer> winningNums, int bonusNum) {
+        int[] score = new int[]{0, 0};
+        for (int num : winningNums) {
+            if (numbers.contains(num)) score[0]++;
+        }
+        if (numbers.contains(bonusNum)) score[1] = 1;
+        return score;
+    }
+
     @Override
     public String toString() {
         numbers.sort(Comparator.naturalOrder());

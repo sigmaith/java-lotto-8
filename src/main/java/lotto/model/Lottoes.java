@@ -4,7 +4,7 @@ import java.util.List;
 
 public class Lottoes {
 
-    private final List<Lotto> lottoes;
+    private List<Lotto> lottoes = null;
 
     public Lottoes(List<Lotto> lottoes) {
         this.lottoes = lottoes;
@@ -12,6 +12,10 @@ public class Lottoes {
 
     public int size() {
         return lottoes.size();
+    }
+
+    public List<int[]> score(List<Integer> winningNums, int bonusNum) {
+        return lottoes.stream().map(l -> l.score(winningNums, bonusNum)).toList();
     }
 
     @Override
